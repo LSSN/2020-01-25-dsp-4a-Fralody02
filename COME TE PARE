@@ -1,0 +1,6 @@
+// La sintesi sottrattiva è un processo che consiste nell'ottenere un suono più semplice partendo da un suono complesso sottoponendo quest'ultimo a uno o più FILTRI. La scrittura del filtro su faust consiste in due valori: il primo indica l'ordine del filtro, cioè la velocità con cui il filtro agisce, e la frequenza di taglio, cioè la frequenza da cui parte l'azione del filtro. Esempi di filtro sono i filtri passa banda:
+//Il filtro passa basso(fi.lowpass) ci consente di filtrare il suono in modo che all'aumentare dell'ordine del filtro vengano attenuate sempre più frequenze alte, a partire da una frequenza di taglio (cut off), che noi specifichiamo nella scrittura del filtro. 
+//Il filtro passa-alto (fi.highpass) ci consente di filtrare il suono in modo che all'aumentare dell'ordine del filtro vengano sempre di più attenuate le frequenze basse, sempre a partire dalla frequenza di taglio (cut off).
+//nell'esempio seguente vediamo un suono su cui agiscono sia il filtro passa basso che quello passa alto, entrambi con un ordine di 2 e con una frequenza di taglio di 6000 Hz:
+import("stdfaust.lib");
+process = no.noise : fi.lowpass(2,6000) : fi.highpass (2,6000);
